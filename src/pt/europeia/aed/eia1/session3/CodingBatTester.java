@@ -1,5 +1,7 @@
 package pt.europeia.aed.eia1.session3;
 
+import static java.lang.System.out;
+
 /*
  * Solutions for some of the CodingBat (Warmup-1) exercises:
  */
@@ -9,11 +11,12 @@ public class CodingBatTester {
      * The parameter isWeekday is true if it is a weekday, and the parameter
      * isVacation is true if we are on vacation. We sleep in if it is not a
      * weekday or we're on vacation. Return true if we sleep in.
+     * 
      */
     public static boolean sleepIn(final boolean isWeekday,
             final boolean isVacation) {
         // Simple solution using a single return statement. The boolean value of
-        // the expression is returned directly. The variables are use directly,
+        // the expression is returned directly. The variables are used directly,
         // not compared with true or false. The negation operator ! is used to
         // check is it is *not* a weekday.
         return !isWeekday || isVacation;
@@ -118,7 +121,8 @@ public class CodingBatTester {
      * time in the range 0..23. We are in trouble if the parrot is talking and
      * the hour is before 7 or after 20. Return true if we are in trouble.
      */
-    public boolean parrotTrouble(final boolean isTalking, final int hour) {
+    public static boolean parrotTrouble(final boolean isTalking,
+            final int hour) {
         // Two solutions again, using a simple return or an if-else statement.
         // Notice that parenthesis are required around the or operator, since it
         // has lower precedence than the and operator.
@@ -179,9 +183,55 @@ public class CodingBatTester {
             return a > 0 && b < 0 || a < 0 && b > 0;
     }
 
+    /*
+     * An utility method for printing results together with expected results.
+     */
+    private static void showResult(final Object result,
+            final Object expectedResult) {
+        out.print("\t" + result + " should be " + expectedResult);
+        out.println(result.equals(expectedResult) ? ": ✓" : ": ✗");
+    }
+
     public static void main(final String[] arguments) {
-        // Tests should be added here. You may use CodingBat's tests, though, so
-        // they are not repeated here.
+        out.println("sleepIn():");
+        showResult(sleepIn(false, false), true);
+        showResult(sleepIn(true, false), false);
+        showResult(sleepIn(false, true), true);
+
+        out.println("monkeyTrouble():");
+        showResult(monkeyTrouble(true, true), true);
+        showResult(monkeyTrouble(false, false), true);
+        showResult(monkeyTrouble(true, false), false);
+
+        out.println("sumDouble():");
+        showResult(sumDouble(1, 2), 3);
+        showResult(sumDouble(3, 2), 5);
+        showResult(sumDouble(2, 2), 8);
+
+        out.println("diff21():");
+        showResult(diff21(19), 2);
+        showResult(diff21(10), 11);
+        showResult(diff21(21), 0);
+
+        out.println("parrotTrouble():");
+        showResult(parrotTrouble(true, 6), true);
+        showResult(parrotTrouble(true, 7), false);
+        showResult(parrotTrouble(false, 6), false);
+
+        out.println("makes10():");
+        showResult(makes10(9, 10), true);
+        showResult(makes10(9, 9), false);
+        showResult(makes10(1, 9), true);
+
+        out.println("nearHundred():");
+        showResult(nearHundred(93), true);
+        showResult(nearHundred(90), true);
+        showResult(nearHundred(89), false);
+
+        out.println("posNeg():");
+        showResult(posNeg(1, -1, false), true);
+        showResult(posNeg(-1, 1, false), true);
+        showResult(posNeg(-4, -5, true), true);
     }
 
 }
