@@ -11,7 +11,7 @@ public class CodingBatTester {
      * Given three int values, a b c, return the largest.
      */
     public static int intMax(final int a, final int b, final int c) {
-        // This solution requires at most two comparisons to do its job. It is
+        // This solution requires exactly two comparisons to do its job. It is
         // also not too hard to read.
         if (a >= b) {
             if (a >= c)
@@ -141,7 +141,7 @@ public class CodingBatTester {
         // if both a and b are outside of the valid range of values).
         int largest = 0;
 
-        // Now we check value a. If it is in the valid range, than we consider
+        // Now we check value a. If it is in the valid range, then we consider
         // it. Since all possible values in the valid range are larger than 0,
         // we do not have to check whether a is larger than the largest value
         // seen, which at this point is 0: we simply set largest to a.
