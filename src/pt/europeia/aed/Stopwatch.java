@@ -16,9 +16,9 @@ public class Stopwatch {
 } 
 
 /*
- * Copyright 2015 and 2016, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2015-2017, Robert Sedgewick and Kevin Wayne.
  * 
- * Copyright 2015 and 2016, Manuel Menezes de Sequeira.
+ * Copyright 2015-2017, Manuel Menezes de Sequeira.
  *
  * This file is a derivative work of the code which accompanies the textbook
  *
