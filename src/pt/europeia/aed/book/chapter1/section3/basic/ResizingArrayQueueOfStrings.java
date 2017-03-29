@@ -49,11 +49,11 @@ public class ResizingArrayQueueOfStrings {
 
         items[first] = null;
 
-        size--;
-
         first++;
         if (first == items.length)
             first = 0;
+
+        size--;
 
         if (size > 0 && size == items.length / 4)
             changeCapacityTo(items.length / 2);
