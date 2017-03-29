@@ -14,6 +14,10 @@ public class ObjectSizeTester {
     // -XX:-UseCompressedOops – To turn off ordinary object pointer
     // optimization, so that results are closer to the ones or the book (which
     // was written before this optimization became the default).
+    //
+    // There is a bug in Java for Mac (solved in Java 9) that leads this code to
+    // produce a runtime warning: "Class JavaLaunchHelper is implemented in
+    // both".
     public static void main(final String[] arguments) {
         // An instance of an empty class uses 16 bytes:
         final Simple simple = new Simple();
