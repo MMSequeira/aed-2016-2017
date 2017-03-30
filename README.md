@@ -2,7 +2,7 @@ Code for the Algoritmos e Estruturas de Dados course of Universidade Europeia.
     
 Copyright 2016-2017, Manuel Menezes de Sequeira.
 
-The code is in part a derivative work of the code which accompanies the
+The code is in large part a derivative work of the code which accompanies the
 textbook
 
 > Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne, Addison-Wesley
