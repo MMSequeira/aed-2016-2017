@@ -6,6 +6,7 @@ import edu.princeton.cs.algs4.In;
 import pt.europeia.aed.Stopwatch;
 
 public class ThreeSum {
+    
     public static int numberOfZeroSumTriplesIn(final int[] numbers) {
         final int length = numbers.length;
         int numberOfZeroSumTriples = 0;
@@ -31,6 +32,7 @@ public class ThreeSum {
         out.println("Elapsed time = " + stopwatch.elapsedTime());
         out.println(numberOfTriples);
     }
+    
 } 
 
 /*
