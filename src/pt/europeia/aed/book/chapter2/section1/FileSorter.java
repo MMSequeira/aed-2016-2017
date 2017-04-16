@@ -9,6 +9,8 @@ public class FileSorter {
     public static void main(final String[] arguments) {
         final File directory = new File(arguments[0]);
 
+        // A least in Mac OS X, the files the resulting array are already sorted
+        // by file name. This makes this test a bit pointless.
         final File[] files = directory.listFiles();
 
         if (files != null) {
