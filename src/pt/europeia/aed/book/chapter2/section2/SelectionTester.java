@@ -26,7 +26,7 @@ public class SelectionTester {
 
                 Arrays.sort(systemSortedValues);
 
-                BottomUpMerge.sort(sortedValues);
+                Selection.sort(sortedValues);
 
                 if (!Arrays.equals(sortedValues, systemSortedValues)) {
                     out.println("\t\tError (repetition = " + repetition + "):");

@@ -26,7 +26,7 @@ public class MergeTester {
 
                 Arrays.sort(systemSortedValues);
 
-                OptimizedMerge.sort(sortedValues);
+                Merge.sort(sortedValues);
 
                 if (!Arrays.equals(sortedValues, systemSortedValues)) {
                     out.println("\t\tError (repetition = " + repetition + "):");

@@ -26,7 +26,7 @@ public class BottomUpMergeTester {
 
                 Arrays.sort(systemSortedValues);
 
-                Selection.sort(sortedValues);
+                BottomUpMerge.sort(sortedValues);
 
                 if (!Arrays.equals(sortedValues, systemSortedValues)) {
                     out.println("\t\tError (repetition = " + repetition + "):");
