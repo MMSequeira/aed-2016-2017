@@ -22,20 +22,20 @@ public class InsertionWithMovesTester {
             for (int repetition = 0; repetition != numberOfRepetions; repetition++) {
                 final Double[] originalValues = randomDoubleArrayOf(size);
                 final Double[] systemSortedValues = originalValues.clone();
-                final Double[] sortedvalues = originalValues.clone();
+                final Double[] sortedValues = originalValues.clone();
 
                 Arrays.sort(systemSortedValues);
 
-                InsertionWithMoves.sort(sortedvalues);
+                InsertionWithMoves.sort(sortedValues);
 
-                if (!Arrays.equals(sortedvalues, systemSortedValues)) {
+                if (!Arrays.equals(sortedValues, systemSortedValues)) {
                     out.println("\t\tError (repetition = " + repetition + "):");
                     out.println("\t\t\tWas:       "
                             + Arrays.toString(originalValues));
                     out.println("\t\t\tShould be: "
                             + Arrays.toString(systemSortedValues));
                     out.println("\t\t\tIs:        "
-                            + Arrays.toString(sortedvalues));
+                            + Arrays.toString(sortedValues));
                 }
             }
 
