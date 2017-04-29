@@ -2,7 +2,7 @@ package pt.europeia.aed.book.chapter2.section2;
 
 import static java.lang.System.out;
 
-public class MergeTester {
+public class MergeCounter {
 
     public static void main(final String[] arguments) {
 //        final Integer[] numbers = { 5, 1, 7, 3, 6, 2, 8, 4 };
