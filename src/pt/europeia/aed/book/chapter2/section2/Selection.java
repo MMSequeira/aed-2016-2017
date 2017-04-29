@@ -10,8 +10,8 @@ public final class Selection {
 
     public static <Item extends Comparable<? super Item>> void sort(
             final Item[] values) {
-        for (int numberOfSortedItems = 0; numberOfSortedItems < values.length
-                - 1; numberOfSortedItems++) {
+        for (int numberOfSortedItems = 0;
+             numberOfSortedItems < values.length - 1; numberOfSortedItems++) {
             int indexOfMinimum = numberOfSortedItems;
 
             for (int i = indexOfMinimum + 1; i != values.length; i++)
@@ -27,8 +27,8 @@ public final class Selection {
 
     public static <Item> void sort(final Item[] values,
             final Comparator<? super Item> comparator) {
-        for (int numberOfSortedItems = 0; numberOfSortedItems < values.length
-                - 1; numberOfSortedItems++) {
+        for (int numberOfSortedItems = 0;
+             numberOfSortedItems < values.length - 1; numberOfSortedItems++) {
             int indexOfMinimum = numberOfSortedItems;
 
             for (int i = indexOfMinimum + 1; i != values.length; i++)
