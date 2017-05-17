@@ -6,6 +6,24 @@ public final class InsertionWithMoves {
         throw new RuntimeException("Attempt to instantiate package-class");
     }
 
+    /**
+     * Sorts an array using a variant of insertion sort (stable) that performs
+     * moves instead of swaps. That is, the value being inserted is not swap
+     * successively to the left until it fits into its place. Instead, a copy of
+     * that value is stored in a temporary variable, the values of the items are
+     * moved right (overlapping the value which is being inserted), and the
+     * value to insert is copied from the temporary variable into the item made
+     * available by the moves. When moving a value M items to the left, this
+     * variant of the algorithm performs 2 array accesses (copies into and out
+     * of the temporary variable) plus 2M array accesses for the moves, for a
+     * total of 2M+2 ~ 2M array accesses. The variant of the algorithm using
+     * swaps performs M swaps in the same case, that is, a total of 4M ~ 4M
+     * array accesses. Hence, the move-based variant of insertion sort performs
+     * about ½ the number of array accesses performed by the swap-based version.
+     * 
+     * @param values
+     *            The array to sort.
+     */
     public static <Item extends Comparable<? super Item>> void sort(
             final Item[] values) {
         for (int numberOfSortedItems = 1; numberOfSortedItems < values.length;
