@@ -22,6 +22,9 @@ public class BinarySearchOrderedTable<Key extends Comparable<? super Key>, Value
 
     @SuppressWarnings("unchecked")
     public BinarySearchOrderedTable(final int capacity) {
+        if (capacity <= 0)
+            throw new IllegalArgumentException("Capacity must be positive.");
+        
         keys = (Key[]) new Comparable[capacity];
         values = (Value[]) new Object[capacity];
 
