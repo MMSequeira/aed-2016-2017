@@ -114,33 +114,36 @@ public class SequentialSearchTable<Key, Value> {
         checkInvariant();
     }
 
-    // public void delete(final Key key) {
-    // checkInvariant();
-    //
-    // first = deleteFrom(first, key);
-    //
-    // checkInvariant();
-    // }
-    //
-    // private Node<Key, Value> deleteFrom(final Node<Key, Value> node, final
-    // Key key) {
-    // if (node == null)
-    // return null;
-    //
-    // if (key.equals(node.key)) {
-    // size--;
-    // return node.next;
-    // }
-    //
-    // node.next = deleteFrom(node.next, key);
-    //
-    // return node;
-    // }
-    //
+    /*-
+    public void delete(final Key key) {
+        checkInvariant();
+    
+        first = deleteFrom(first, key);
+    
+        checkInvariant();
+    }
+    
+    private Node<Key, Value> deleteFrom(final Node<Key, Value> node,
+            final Key key) {
+        if (node == null)
+            return null;
+    
+        if (key.equals(node.key)) {
+            size--;
+            return node.next;
+        }
+    
+        node.next = deleteFrom(node.next, key);
+    
+        return node;
+    }
+    */
+
     private void checkInvariant() {
-        assert isSizeConsistent() : "Table array capacities not consistent with size.";
+        assert isSizeConsistent() : "Linked list length not consistent with size.";
         assert keysAreNonNull() : "Table contains null keys.";
         assert valuesAreNonNull() : "Table contains null values.";
+        assert hasNoRepeatedKeys() : "Table contains repeated keys.";
     }
 
     private boolean isSizeConsistent() {
@@ -162,6 +165,15 @@ public class SequentialSearchTable<Key, Value> {
         for (Node<Key, Value> node = first; node != null; node = node.next)
             if (node.value == null)
                 return false;
+        return true;
+    }
+
+    private boolean hasNoRepeatedKeys() {
+        for (Node<Key, Value> node = first; node != null; node = node.next)
+            for (Node<Key, Value> other = node.next; other != null;
+                 other = other.next)
+                if (node.key.equals(other.key))
+                    return false;
         return true;
     }
 
