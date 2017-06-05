@@ -102,9 +102,9 @@ public final class Quick {
     }
 
     private static <Item extends Comparable<? super Item>> boolean isIncreasing(
-            final Item[] a, final int first, final int last) {
+            final Item[] values, final int first, final int last) {
         for (int i = first + 1; i <= last; i++)
-            if (isLess(a[i], a[i - 1]))
+            if (isLess(values[i], values[i - 1]))
                 return false;
         return true;
     }
