@@ -1,7 +1,5 @@
 package pt.europeia.aed.book.chapter2.section4;
 
-import static pt.europeia.aed.Tools.out;
-
 public final class Heap {
 
     private Heap() {
