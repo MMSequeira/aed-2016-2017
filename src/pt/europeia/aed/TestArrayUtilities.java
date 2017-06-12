@@ -38,7 +38,7 @@ public class TestArrayUtilities {
         }
     }
 
-    // Partially shuffles and array until the number of inversions attains a
+    // Partially shuffles an array until the number of inversions attains a
     // certain proportion of the array length (approximated by above):
     public static <Item extends Comparable<? super Item>> int partiallyShuffle(
             final Item[] values, final double desiredRatioOfInversions) {
