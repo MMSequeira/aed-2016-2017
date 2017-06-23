@@ -63,7 +63,7 @@ public final class Date implements Comparable<Date> {
             return year - that.year;
         if (month != that.month)
             return month - that.month;
-        return day - that.month;
+        return day - that.day;
     }
 
     public static void main(final String[] arguments) {
