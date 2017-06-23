@@ -24,7 +24,7 @@ public class BinarySearchOrderedTable<Key extends Comparable<? super Key>, Value
     public BinarySearchOrderedTable(final int capacity) {
         if (capacity <= 0)
             throw new IllegalArgumentException("Capacity must be positive.");
-        
+
         keys = (Key[]) new Comparable[capacity];
         values = (Value[]) new Object[capacity];
 
@@ -46,11 +46,19 @@ public class BinarySearchOrderedTable<Key extends Comparable<? super Key>, Value
     public boolean contains(final Key key) {
         checkInvariant();
 
+        if (key == null)
+            throw new IllegalArgumentException(
+                    "Key passed to contains() cannot be null");
+
         return valueFor(key) != null;
     }
 
     public Value valueFor(final Key key) {
         checkInvariant();
+
+        if (key == null)
+            throw new IllegalArgumentException(
+                    "Key passed to valueFor() cannot be null");
 
         if (isEmpty())
             return null;
@@ -71,6 +79,10 @@ public class BinarySearchOrderedTable<Key extends Comparable<? super Key>, Value
 
     public void put(final Key key, final Value value) {
         checkInvariant();
+
+        if (key == null)
+            throw new IllegalArgumentException(
+                    "Key passed to put() cannot be null");
 
         if (value == null) {
             delete(key);
@@ -103,6 +115,10 @@ public class BinarySearchOrderedTable<Key extends Comparable<? super Key>, Value
     public void delete(final Key key) {
         checkInvariant();
 
+        if (key == null)
+            throw new IllegalArgumentException(
+                    "Key passed to delete() cannot be null");
+
         if (isEmpty())
             return;
 
@@ -128,6 +144,10 @@ public class BinarySearchOrderedTable<Key extends Comparable<? super Key>, Value
     }
 
     public int rankOf(final Key key) {
+        if (key == null)
+            throw new IllegalArgumentException(
+                    "Key passed to rankOf() cannot be null");
+
         int first = 0;
         int last = size - 1;
 
@@ -174,6 +194,10 @@ public class BinarySearchOrderedTable<Key extends Comparable<? super Key>, Value
     public Key floorOf(final Key key) {
         checkInvariant();
 
+        if (key == null)
+            throw new IllegalArgumentException(
+                    "Key passed to floorOf() cannot be null");
+
         final int rank = rankOf(key);
 
         if (rank < size && key.compareTo(keys[rank]) == 0)
@@ -188,6 +212,10 @@ public class BinarySearchOrderedTable<Key extends Comparable<? super Key>, Value
     public Key ceilingOf(final Key key) {
         checkInvariant();
 
+        if (key == null)
+            throw new IllegalArgumentException(
+                    "Key passed to ceilingOf() cannot be null");
+
         final int rank = rankOf(key);
 
         if (rank == size)
@@ -198,6 +226,10 @@ public class BinarySearchOrderedTable<Key extends Comparable<? super Key>, Value
 
     public int sizeOfRange(final Key low, final Key high) {
         checkInvariant();
+
+        if (low == null || high == null)
+            throw new IllegalArgumentException(
+                    "Keys passed to sizeOfRange() cannot be null");
 
         if (low.compareTo(high) > 0)
             return 0;
