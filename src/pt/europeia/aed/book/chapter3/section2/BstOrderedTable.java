@@ -131,7 +131,7 @@ public class BstOrderedTable<Key extends Comparable<? super Key>, Value> {
     public Key ceilingOf(final Key key) {
         checkInvariant();
 
-        Node<Key, Value> ceilingNode = ceilingNodeOf(key, root);
+        final Node<Key, Value> ceilingNode = ceilingNodeOf(key, root);
 
         if (ceilingNode == null)
             return null;
@@ -154,7 +154,7 @@ public class BstOrderedTable<Key extends Comparable<? super Key>, Value> {
     public Iterable<Key> keysInRange(final Key low, final Key high) {
         checkInvariant();
 
-        Queue<Key> keys = new Queue<Key>();
+        final Queue<Key> keys = new Queue<Key>();
 
         enqueueKeysInRange(keys, low, high, root);
 
@@ -170,9 +170,9 @@ public class BstOrderedTable<Key extends Comparable<? super Key>, Value> {
     public Iterable<Key> keysInLevelOrder() {
         checkInvariant();
 
-        Queue<Key> keys = new Queue<Key>();
+        final Queue<Key> keys = new Queue<Key>();
 
-        Queue<Node<Key, Value>> nodes = new Queue<Node<Key, Value>>();
+        final Queue<Node<Key, Value>> nodes = new Queue<Node<Key, Value>>();
 
         nodes.enqueue(root);
         while (!nodes.isEmpty()) {
