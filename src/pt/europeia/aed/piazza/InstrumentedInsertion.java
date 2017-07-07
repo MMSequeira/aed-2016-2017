@@ -6,10 +6,10 @@ import java.util.Arrays;
 
 public final class InstrumentedInsertion {
 
-    private static int numberOfComparisons = 0;
-    private static int numberOfSwaps = 0;
-    private static int numberOfArrayReads = 0;
-    private static int numberOfArrayWrites = 0;
+    private static long numberOfComparisons = 0;
+    private static long numberOfSwaps = 0;
+    private static long numberOfArrayReads = 0;
+    private static long numberOfArrayWrites = 0;
 
     private InstrumentedInsertion() {
         throw new RuntimeException("Attempt to instantiate package-class");
@@ -17,6 +17,8 @@ public final class InstrumentedInsertion {
 
     public static <Item extends Comparable<? super Item>> void sort(
             final Item[] values) {
+        resetCounts();
+        
         for (int numberOfSortedItems = 1; numberOfSortedItems < values.length;
              numberOfSortedItems++)
             for (int i = numberOfSortedItems;
@@ -43,20 +45,27 @@ public final class InstrumentedInsertion {
         values[secondPosition] = temporary;
     }
 
-    public static int getNumberOfComparisons() {
+    public static long getNumberOfComparisons() {
         return numberOfComparisons;
     }
 
-    public static int getNumberOfSwaps() {
+    public static long getNumberOfSwaps() {
         return numberOfSwaps;
     }
 
-    public static int getNumberOfArrayReads() {
+    public static long getNumberOfArrayReads() {
         return numberOfArrayReads;
     }
 
-    public static int getNumberOfArrayWrites() {
+    public static long getNumberOfArrayWrites() {
         return numberOfArrayWrites;
+    }
+    
+    private static void resetCounts() {
+        numberOfComparisons = 0;
+        numberOfSwaps = 0;
+        numberOfArrayReads = 0;
+        numberOfArrayWrites = 0;
     }
 
     public static void main(final String[] arguments) {
