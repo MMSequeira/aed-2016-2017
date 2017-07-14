@@ -56,7 +56,7 @@ public class SequentialSearchOrderedTable<Key extends Comparable<? super Key>, V
         checkInvariant();
 
         for (Node<Key, Value> node = first; node != null; node = node.next)
-            if (key.equals(node.key))
+            if (key.compareTo(node.key) == 0)
                 return node.value;
 
         return null;
@@ -77,7 +77,7 @@ public class SequentialSearchOrderedTable<Key extends Comparable<? super Key>, V
         }
 
         for (Node<Key, Value> node = first; node != null; node = node.next)
-            if (key.equals(node.key)) {
+            if (key.compareTo(node.key) == 0) {
                 node.value = value;
                 return;
             }
@@ -96,12 +96,12 @@ public class SequentialSearchOrderedTable<Key extends Comparable<? super Key>, V
         if (isEmpty())
             return;
 
-        if (key.equals(first.key)) {
+        if (key.compareTo(first.key) == 0) {
             size--;
             first = first.next;
         } else {
             Node<Key, Value> node = first;
-            while (node.next != null && !key.equals(node.next.key))
+            while (node.next != null && key.compareTo(node.next.key) != 0)
                 node = node.next;
             if (node.next != null) {
                 size--;
@@ -258,7 +258,7 @@ public class SequentialSearchOrderedTable<Key extends Comparable<? super Key>, V
     // if (node == null)
     // return null;
     //
-    // if (key.equals(node.key)) {
+    // if (key.compareTo(node.key) == 0) {
     // size--;
     // return node.next;
     // }
