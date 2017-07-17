@@ -146,11 +146,6 @@ public class DoublyLinkedQueue<Item> implements Iterable<Item> {
             } else
                 words.enqueue(word);
         }
-        out.println();
-
-        out.println();
-
-        out.println("Remaining words (reverse):");
     }
 
 }
