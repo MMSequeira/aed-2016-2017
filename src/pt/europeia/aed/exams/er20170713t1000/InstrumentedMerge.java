@@ -17,6 +17,8 @@ public final class InstrumentedMerge {
     }
 
     public static void sort(final double[] values) {
+        resetCounts();
+        
         final double[] auxiliary = new double[values.length];
 
         sort(values, auxiliary, 0, values.length - 1, 1);
