@@ -10,24 +10,24 @@ public final class TernarySearch {
         int first = 0;
         int last = values.length - 1;
         while (first <= last) {
-            final int firstThird = first + (last - first) / 3;
-            final int secondThird = last - (last - first) / 3;
+            final int middleLeft = first + (last - first) / 3;
+            final int middleRight = last - (last - first) / 3;
 
-            if (key < values[firstThird])
-                last = firstThird - 1;
+            if (key < values[middleLeft])
+                last = middleLeft - 1;
             else {
-                if (key > values[firstThird])
-                    if (key < values[secondThird]) {
-                        first = firstThird + 1;
-                        last = secondThird - 1;
+                if (key > values[middleLeft])
+                    if (key < values[middleRight]) {
+                        first = middleLeft + 1;
+                        last = middleRight - 1;
                     } else {
-                        if (key > values[secondThird])
-                            first = secondThird + 1;
+                        if (key > values[middleRight])
+                            first = middleRight + 1;
                         else
-                            return secondThird;
+                            return middleRight;
                     }
                 else
-                    return firstThird;
+                    return middleLeft;
             }
         }
         return -1;
