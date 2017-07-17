@@ -11,7 +11,7 @@ public final class TernarySearch {
         int last = values.length - 1;
         while (first <= last) {
             final int firstThird = first + (last - first) / 3;
-            final int secondThird = first + (last - first) * 2 / 3;
+            final int secondThird = last - (last - first) / 3;
 
             if (key < values[firstThird])
                 last = firstThird - 1;
